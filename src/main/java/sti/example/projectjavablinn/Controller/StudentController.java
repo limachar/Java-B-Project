@@ -28,10 +28,10 @@ public class StudentController {
         return stiService.findAll();
     }
 
-    @GetMapping("/students/{id}")
-    public Student getStudent (@PathVariable Long id) {
+    @GetMapping("/students/{number}")
+    public Student getStudent (@PathVariable Long number) {
 
-        return stiService.findByStudentId(id);
+        return stiService.findByNumber(number);
     }
 
     /*@PutMapping("/students/{id}")
@@ -40,9 +40,9 @@ public class StudentController {
         return studentRepo.save(student);
     }*/
 
-    @DeleteMapping("/students/{id}")
-    public ResponseEntity<Object> deleteStudent (@PathVariable Long id) {
+    @DeleteMapping("/students/{number}")
+    public ResponseEntity<Object> deleteStudent (@PathVariable Long number) {
 
-        return stiService.deleteStudent(id);
+        return stiService.deleteStudent(number);
     }
 }

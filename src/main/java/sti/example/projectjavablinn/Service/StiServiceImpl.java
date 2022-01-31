@@ -40,17 +40,17 @@ public class StiServiceImpl implements StiService{
         return ResponseEntity.status(HttpStatus.CREATED).body("New Student created successfully");
     }
 
-    public Student findByStudentId(Long id){
-        Optional<Student> studentOpt = studentRepository.findById(id);
+    public Student findByNumber(Long number){
+        Optional<Student> studentOpt = studentRepository.findByNumber(number);
 
         if(studentOpt.isPresent())
             return  studentOpt.get();
 
-        throw new RuntimeException("Not found for the id "+id);
+        throw new RuntimeException("Not found for the id " + number);
     }
 
-    public ResponseEntity<Object> deleteStudent(Long id){
-        Optional<Student> studentOpt = studentRepository.findById(id);
+    public ResponseEntity<Object> deleteStudent(Long number){
+        Optional<Student> studentOpt = studentRepository.findByNumber(number);
 
         if(studentOpt.isPresent()){
             Student managedStudentOpt = studentOpt.get();

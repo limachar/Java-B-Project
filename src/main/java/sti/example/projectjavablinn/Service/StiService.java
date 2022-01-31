@@ -11,8 +11,8 @@ public interface StiService {
 
     public ResponseEntity<Object> addStudent(Student student);
 
-    public Student findByStudentId(Long id);
+    public Student findByNumber(Long number);
 
-    public ResponseEntity<Object> deleteStudent(Long id) ;
+    public ResponseEntity<Object> deleteStudent(Long number) ;
 
 }
