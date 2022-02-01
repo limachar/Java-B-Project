@@ -25,7 +25,7 @@ public class StudentController {
     @GetMapping("/students")
     public List<Student> getAllStudents () {
 
-        return stiService.findAll();
+        return stiService.findAllStudents();
     }
 
     @GetMapping("/students/{number}")
