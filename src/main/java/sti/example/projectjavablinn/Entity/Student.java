@@ -31,9 +31,9 @@ public class Student {
             CascadeType.MERGE
     })
     @JoinTable(
-            name = "tbl_student_course",
+            name = "tbl_student_courses",
             joinColumns = {@JoinColumn(name = "tbl_student_id")},
-            inverseJoinColumns = {@JoinColumn(name = "tbl_course_id")}
+            inverseJoinColumns = {@JoinColumn(name = "tbl_courses_id")}
     )
     private Set<Course> courses;
 
