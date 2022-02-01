@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +23,10 @@ public class Course {
     private String name;
     private int yhPoints;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private Teacher teacher;
+
+    @ManyToMany(mappedBy = "courses")
+    private Set<Student> students;
 }

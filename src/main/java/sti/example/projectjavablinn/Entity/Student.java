@@ -4,7 +4,9 @@ import javax.persistence.*;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,5 +25,16 @@ public class Student {
     private String firstName;
     private String lastName;
     private Long number;
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(
+            name = "tbl_student_course",
+            joinColumns = {@JoinColumn(name = "tbl_student_id")},
+            inverseJoinColumns = {@JoinColumn(name = "tbl_course_id")}
+    )
+    private Set<Course> courses;
 
 }
