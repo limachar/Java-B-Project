@@ -1,18 +1,34 @@
 package sti.example.projectjavablinn.Service;
 
 import org.springframework.http.ResponseEntity;
+import sti.example.projectjavablinn.Entity.Course;
 import sti.example.projectjavablinn.Entity.Student;
+import sti.example.projectjavablinn.Entity.Teacher;
 
 import java.util.List;
 
 public interface StiService {
 
-    public List<Student> findAll();
+    List<Student> findAllStudents();
 
-    public ResponseEntity<Object> addStudent(Student student);
+    ResponseEntity<Object> addStudent(Student student);
 
-    public Student findByNumber(Long number);
+    Student findByNumber(Long number);
 
-    public ResponseEntity<Object> deleteStudent(Long number) ;
+    ResponseEntity<Object> deleteStudent(Long number);
+
+
+
+    List<Teacher> findAllTeachers();
+
+    ResponseEntity<Object> addTeacher(Teacher teacher);
+
+    Teacher findByNum(Long number);
+
+    ResponseEntity<Object> deleteTeacher(Long number);
+
+
+
+    ResponseEntity<Object> addCourse(Course course);
 
 }
