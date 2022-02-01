@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,12 +23,12 @@ public class Teacher {
 
     private String firstName;
     private String lastName;
-    private Long number;
+    private Long num;
     private int hourlyPay;
 
     @OneToMany
-    @JoinColumn(name = "courses_id")
-    private Course courses;
+    @JoinColumn(name = "tbl_courses_id")
+    private Set<Course> courses;
 
 
 }
