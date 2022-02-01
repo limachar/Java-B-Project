@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-    public Optional<Student> findByNumber(Long number);
+    Optional<Student> findByNumber(Long number);
 
 }
