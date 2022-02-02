@@ -18,7 +18,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "student_id", nullable = false)
     private Long id;
 
 
@@ -26,15 +26,15 @@ public class Student {
     private String lastName;
     private Long number;
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "tbl_student_courses",
-            joinColumns = {@JoinColumn(name = "tbl_student_id")},
-            inverseJoinColumns = {@JoinColumn(name = "tbl_courses_id")}
+            name = "student_course",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
     )
     private Set<Course> courses;
+
+    //TODO add a student without a course? add more courses to a student? ->
+    // add an already existing course to new student without it duplicating.
 
 }

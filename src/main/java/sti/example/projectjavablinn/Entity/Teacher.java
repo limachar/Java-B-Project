@@ -18,7 +18,7 @@ public class Teacher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "teacher_id", nullable = false)
     private Long id;
 
     private String firstName;
@@ -26,8 +26,12 @@ public class Teacher {
     private Long num;
     private int hourlyPay;
 
-    @OneToMany
-    @JoinColumn(name = "tbl_courses_id")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "teacher_course",
+            joinColumns = @JoinColumn(name = "teacher_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
     private Set<Course> courses;
 
 

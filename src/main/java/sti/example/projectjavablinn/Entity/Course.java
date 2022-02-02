@@ -18,15 +18,9 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "course_id")
     private Long id;
     private String name;
     private int yhPoints;
 
-    @ManyToOne
-    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
-    private Teacher teacher;
-
-    @ManyToMany(mappedBy = "courses")
-    private Set<Student> students;
 }
