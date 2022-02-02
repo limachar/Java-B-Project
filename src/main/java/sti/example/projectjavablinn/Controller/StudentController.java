@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import sti.example.projectjavablinn.Entity.Course;
 import sti.example.projectjavablinn.Entity.Student;
 import sti.example.projectjavablinn.Service.StiServiceImpl;
 
@@ -21,6 +22,11 @@ public class StudentController {
 
         return stiService.addStudent(student);
     }
+    @PostMapping("/students/{number}/{id}")
+    public ResponseEntity<Object> addStudent (@PathVariable Long number, @PathVariable Long id) {
+
+        return stiService.addCourseToStudent(number, id);
+    }
 
     @GetMapping("/students")
     public List<Student> getAllStudents () {
@@ -33,7 +39,7 @@ public class StudentController {
 
         return stiService.findByNumber(number);
     }
-
+//TODO can I set a course? by finding the course in course repository by id? add it to set with method in class .
     /*@PutMapping("/students/{id}")
     public Student update (@PathVariable Long id, @RequestBody Student student) {
         student.setId(id);

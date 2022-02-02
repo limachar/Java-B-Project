@@ -31,4 +31,6 @@ public interface StiService {
 
     ResponseEntity<Object> addCourse(Course course);
 
+    ResponseEntity<Object> addCourseToStudent(Long number1, Long number2);
+
 }

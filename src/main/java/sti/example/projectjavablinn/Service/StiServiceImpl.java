@@ -111,4 +111,22 @@ public class StiServiceImpl implements StiService{
 
         return ResponseEntity.status(HttpStatus.CREATED).body("New Course created successfully");
     }
+    public Course findById(Long number){
+        Optional<Course> courseOpt = courseRepository.findById(number);
+
+        if(courseOpt.isPresent())
+            return  courseOpt.get();
+
+        throw new RuntimeException("Not found for the id " + number);
+    }
+    public ResponseEntity<Object> addCourseToStudent(Long number1, Long number2){
+        Student student = findByNumber(number1);
+        Course course = findById(number2);
+
+        student.addCourses(course);
+        studentRepository.save(student);
+
+        return ResponseEntity.status(HttpStatus.OK).body("New Course added successfully");
+    }
+    //TODO LOGGER
 }
