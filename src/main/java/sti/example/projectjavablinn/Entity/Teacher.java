@@ -34,5 +34,11 @@ public class Teacher {
     )
     private Set<Course> courses;
 
+    public void addCourses(Course course) {
+        this.courses.add(course);
+    }
 
+    public void setCourses(Set<Course> courses) {
+
+    }
 }

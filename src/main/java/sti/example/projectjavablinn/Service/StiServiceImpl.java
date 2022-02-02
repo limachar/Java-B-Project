@@ -119,12 +119,23 @@ public class StiServiceImpl implements StiService{
 
         throw new RuntimeException("Not found for the id " + number);
     }
+    @Transactional
     public ResponseEntity<Object> addCourseToStudent(Long number1, Long number2){
         Student student = findByNumber(number1);
         Course course = findById(number2);
 
         student.addCourses(course);
         studentRepository.save(student);
+
+        return ResponseEntity.status(HttpStatus.OK).body("New Course added successfully");
+    }
+    @Transactional
+    public ResponseEntity<Object> addCourseToTeacher(Long number1, Long number2){
+        Teacher teacher = findByNum(number1);
+        Course course = findById(number2);
+
+        teacher.addCourses(course);
+        teacherRepository.save(teacher);
 
         return ResponseEntity.status(HttpStatus.OK).body("New Course added successfully");
     }

@@ -34,6 +34,13 @@ public class Student {
     )
     private Set<Course> courses;
 
+    public void addCourses(Course course) {
+        this.courses.add(course);
+    }
+
+    public void setCourses(Set<Course> courses) {
+
+    }
     //TODO add a student without a course? add more courses to a student? ->
     // add an already existing course to new student without it duplicating.
 

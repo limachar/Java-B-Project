@@ -20,6 +20,11 @@ public class TeacherController {
 
         return stiService.addTeacher(teacher);
     }
+    @PutMapping("/students/{number}/{id}")
+    public ResponseEntity<Object> addCourseToTeacher (@PathVariable Long number, @PathVariable Long id) {
+
+        return stiService.addCourseToTeacher(number, id);
+    }
 
     @GetMapping("/teachers")
     public List<Teacher> getAllTeachers () {

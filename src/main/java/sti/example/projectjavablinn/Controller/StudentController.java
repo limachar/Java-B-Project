@@ -22,8 +22,8 @@ public class StudentController {
 
         return stiService.addStudent(student);
     }
-    @PostMapping("/students/{number}/{id}")
-    public ResponseEntity<Object> addStudent (@PathVariable Long number, @PathVariable Long id) {
+    @PutMapping("/students/{number}/{id}")
+    public ResponseEntity<Object> addCourseToStudent (@PathVariable Long number, @PathVariable Long id) {
 
         return stiService.addCourseToStudent(number, id);
     }
