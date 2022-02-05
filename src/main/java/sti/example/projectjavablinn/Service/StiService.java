@@ -27,6 +27,8 @@ public interface StiService {
 
     ResponseEntity<Object> deleteTeacher(Long number);
 
+    int getMonthly(int monthly);
+
 
 
     ResponseEntity<Object> addCourse(Course course);

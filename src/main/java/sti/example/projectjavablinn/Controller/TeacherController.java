@@ -49,4 +49,11 @@ public class TeacherController {
 
         return stiService.deleteTeacher(number);
     }
+
+    @GetMapping("/teachers/monthly/{num}")
+    public int getMonthly(@PathVariable Long num){
+        Teacher teacherOpt = stiService.findByNum(num);
+        return stiService.getMonthly(teacherOpt.getHourlyPay());
+
+    }
 }

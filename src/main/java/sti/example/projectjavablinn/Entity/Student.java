@@ -26,7 +26,7 @@ public class Student {
     private String lastName;
     private Long number;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "student_course",
             joinColumns = @JoinColumn(name = "student_id"),

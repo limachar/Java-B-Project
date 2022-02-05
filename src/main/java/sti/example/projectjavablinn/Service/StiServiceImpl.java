@@ -106,6 +106,11 @@ public class StiServiceImpl implements StiService{
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Teacher doesn't exist.");
         }
     }
+    public int getMonthly(int monthly){
+
+            return monthly*160;
+
+    }
     public ResponseEntity<Object> addCourse(Course course){
         courseRepository.save(course);
 
